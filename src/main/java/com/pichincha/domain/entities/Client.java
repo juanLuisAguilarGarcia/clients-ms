@@ -1,19 +1,19 @@
 package com.pichincha.domain.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.sql.Timestamp;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Client {
-    private Integer clientId;
-    private boolean isActived;
+    private Long clientId;
+    private Boolean isActive;
     private String password;
     private Person personalInformation;
-    private String createAt;
-    private String updateAt;
+    private Timestamp createAt;
+    private Timestamp updateAt;
 }

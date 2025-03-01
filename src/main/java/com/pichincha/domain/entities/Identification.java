@@ -1,15 +1,13 @@
 package com.pichincha.domain.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Identification {
-    private Integer typeId;
-    private Integer number;
+    private Long typeId;
+    private Long number;
 }

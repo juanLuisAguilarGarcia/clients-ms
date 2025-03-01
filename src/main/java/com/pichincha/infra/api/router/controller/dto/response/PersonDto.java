@@ -16,7 +16,7 @@ import lombok.Setter;
 public class PersonDto {
     @JsonProperty("first_name")
     @NotBlank
-    private String fistName;
+    private String firstName;
     @JsonProperty("last_name")
     @NotBlank
     private String lastName;
@@ -28,8 +28,4 @@ public class PersonDto {
     private String address;
     @JsonProperty("contact_information")
     private ContactInformationDto contactInformation;
-    @JsonProperty("create_at")
-    private String createAt;
-    @JsonProperty("update_at")
-    private String updateAt;
 }

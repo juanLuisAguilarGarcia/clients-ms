@@ -1,8 +1,7 @@
 package com.pichincha.infra.adapter.db.entites;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -11,7 +10,10 @@ import java.util.List;
 @Table(name = "Identification_Type")
 @Getter
 @Setter
-public class IdentificationType {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class IdentificationTypeDto {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "identification_type_id")
@@ -25,6 +27,6 @@ public class IdentificationType {
     @Column(name = "update_at")
     private Timestamp updateAt;
 
-    @OneToMany(mappedBy="identificationType")
-    private List<Persons> persons;
+    @OneToMany(mappedBy= "identification")
+    private List<PersonsDto> people;
 }

@@ -8,11 +8,12 @@ import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring")
 public interface ClientDtoMapper {
+
     @Mapping(ignore = true, target = "clientId")
     Client toEntity(CreateClientDto createClientDto);
 
     @Mappings({
             @Mapping(target="clientId", source="clientId")
     })
-    Client toEntityWithId(CreateClientDto createClientDto, Integer clientId);
+    Client toEntityWithId(CreateClientDto createClientDto, Long clientId);
 }

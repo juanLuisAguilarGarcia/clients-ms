@@ -15,7 +15,7 @@ import lombok.Setter;
 public class IdentificationDto {
     @NotBlank
     @JsonProperty("type_id")
-    private Integer typeId;
+    private Long typeId;
     @NotNull
-    private Integer number;
+    private Long number;
 }

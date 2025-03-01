@@ -53,4 +53,5 @@ public class RouterConsts {
      * messages
      */
     public static final String MSG_CONFIRMATION_DELETE = "Record deleted successful.";
+    public static final String MSG_PROCESS = "%s %s client: %s.";
 }

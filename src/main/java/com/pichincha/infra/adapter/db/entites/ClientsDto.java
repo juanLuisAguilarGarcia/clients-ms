@@ -1,15 +1,18 @@
 package com.pichincha.infra.adapter.db.entites;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Getter
 @Setter
-public class Clients {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "Clients")
+public class ClientsDto {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "client_id")
@@ -22,7 +25,7 @@ public class Clients {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_person_id", referencedColumnName = "person_id")
-    private Persons persons;
+    private PersonsDto persons;
 
     @Column(name = "create_at")
     private Timestamp createAt;

@@ -1,10 +1,12 @@
 package com.pichincha.domain.port.db;
 
 import com.pichincha.domain.entities.Client;
+import com.pichincha.infra.adapter.db.entites.ClientsDto;
 
 public interface ClientsPortRepository {
-    Client createClient(Client client);
-    Client getClientById(Integer clientId);
-    void deleteClient(Integer clientId);
-    Client updateClient(Client client );
+    Client save(ClientsDto client);
+    Client getClientById(Long clientId);
+    Client getClientByIdentificationTypeIdAndIdentificationNumber(Long typeId, Long number);
+    void deleteClient(Long clientId);
+    Client updateClient(ClientsDto client );
 }

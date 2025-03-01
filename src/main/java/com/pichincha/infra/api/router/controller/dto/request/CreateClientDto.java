@@ -7,14 +7,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Timestamp;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateClientDto  {
-    @JsonProperty("is_actived")
-    private boolean isActived;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     private String password;
     @JsonProperty("personal_information")
     private PersonDto personalInformation;
+    @JsonProperty("create_at")
+    private Timestamp createAt;
+    @JsonProperty("update_at")
+    private Timestamp updateAt;
 }

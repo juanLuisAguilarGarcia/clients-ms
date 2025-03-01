@@ -1,22 +1,20 @@
 package com.pichincha.domain.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.sql.Timestamp;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Person {
-    private String fistName;
+    private String firstName;
     private String lastName;
     private String gender;
     private Integer age;
     private Identification identification;
     private String address;
     private ContactInformation contactInformation;
-    private String createAt;
-    private String updateAt;
 }

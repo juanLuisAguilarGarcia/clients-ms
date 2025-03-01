@@ -1,15 +1,18 @@
 package com.pichincha.infra.adapter.db.entites;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Getter
 @Setter
-public class Persons {
+@Table(name = "Persons", uniqueConstraints={@UniqueConstraint(columnNames = {"person_identification_type_id" , "identification_number"})})
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class PersonsDto {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "person_id")
@@ -26,13 +29,13 @@ public class Persons {
 
     @ManyToOne
     @JoinColumn(name="person_identification_type_id", nullable=false)
-    private IdentificationType identificationType;
+    private IdentificationTypeDto identification;
 
     @OneToOne(mappedBy = "persons")
-    private Clients clients;
+    private ClientsDto clientsDto;
 
     @Column(name = "identification_number")
-    private Long identification_number;
+    private Long identificationNumber;
 
     private String address;
 
