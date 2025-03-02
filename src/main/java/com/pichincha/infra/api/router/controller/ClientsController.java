@@ -63,7 +63,7 @@ public class ClientsController {
     }
 
     @GetMapping(value = "/{client_id}", produces = APPLICATION_JSON_VALUE)
-    @Operation(summary = RouterConsts.API_OPERATION_GET_CLIENT_BY_ID, description = RouterConsts.NOTE_API_OPERATION_CREATE_CLIENT)
+    @Operation(summary = RouterConsts.API_OPERATION_GET_CLIENT_BY_ID, description = RouterConsts.NOTE_API_OPERATION_GET_BY_ID_CLIENT)
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = RouterConsts.API_RESPONSE_COD_200,
             content =  { @Content( schema = @Schema(implementation =  ClientDto.class), mediaType = APPLICATION_JSON_VALUE)}),
             @ApiResponse(responseCode = "400", description = RouterConsts.API_RESPONSE_COD_400,
@@ -86,7 +86,7 @@ public class ClientsController {
     }
 
     @DeleteMapping(value = "/{client_id}", produces = APPLICATION_JSON_VALUE)
-    @Operation(summary = RouterConsts.API_OPERATION_DELETE_CLIENT, description = RouterConsts.NOTE_API_OPERATION_CREATE_CLIENT)
+    @Operation(summary = RouterConsts.API_OPERATION_DELETE_CLIENT, description = RouterConsts.NOTE_API_OPERATION_DELETE_CLIENT)
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = RouterConsts.API_RESPONSE_COD_200,
             content =  { @Content( schema = @Schema(implementation =  GenericResponseDTO.class), mediaType = APPLICATION_JSON_VALUE)}),
             @ApiResponse(responseCode = "400", description = RouterConsts.API_RESPONSE_COD_400,
@@ -111,7 +111,7 @@ public class ClientsController {
     }
 
     @PutMapping(value = "/{client_id}", produces = APPLICATION_JSON_VALUE)
-    @Operation(summary = RouterConsts.API_OPERATION_CREATE_CLIENT, description = RouterConsts.NOTE_API_OPERATION_CREATE_CLIENT)
+    @Operation(summary = RouterConsts.API_OPERATION_CREATE_CLIENT, description = RouterConsts.NOTE_API_OPERATION_UPDATE_CLIENT)
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = RouterConsts.API_RESPONSE_COD_200,
             content =  { @Content( schema = @Schema(implementation =  ClientDto.class), mediaType = APPLICATION_JSON_VALUE)}),
             @ApiResponse(responseCode = "400", description = RouterConsts.API_RESPONSE_COD_400,

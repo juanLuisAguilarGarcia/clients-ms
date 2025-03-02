@@ -27,6 +27,9 @@ public class RouterConsts {
      * descripcion de las operaciones o metodos
      */
     public static final String NOTE_API_OPERATION_CREATE_CLIENT = "In charge of create a new clients.";
+    public static final String NOTE_API_OPERATION_GET_BY_ID_CLIENT = "In charge of get clients information filter by Id.";
+    public static final String NOTE_API_OPERATION_DELETE_CLIENT = "In charge of delete a clients.";
+    public static final String NOTE_API_OPERATION_UPDATE_CLIENT = "In charge of update clients infromation.";
 
     /**
      * mensajes de respuesta de acuerdo al codigo http
