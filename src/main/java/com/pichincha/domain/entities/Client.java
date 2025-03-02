@@ -1,6 +1,7 @@
 package com.pichincha.domain.entities;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.sql.Timestamp;
 
@@ -8,6 +9,7 @@ import java.sql.Timestamp;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@SuperBuilder
 @Builder
 public class Client {
     private Long clientId;

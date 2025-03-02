@@ -1,6 +1,7 @@
 package com.pichincha.domain.entities;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.sql.Timestamp;
 
@@ -10,6 +11,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 public class Person {
+    private Long personId;
     private String firstName;
     private String lastName;
     private String gender;

@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
-@Table(name = "Identification_Type")
+@Table(name = "identification_type")
 @Getter
 @Setter
 @Builder
@@ -19,12 +19,13 @@ public class IdentificationTypeDto {
     @Column(name = "identification_type_id")
     private Long identificationTypeId;
 
+    @Column(length = 100)
     private String description;
 
-    @Column(name = "create_at")
+    @Column(name = "create_at", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable=false, updatable = false)
     private Timestamp createAt;
 
-    @Column(name = "update_at")
+    @Column(name = "update_at", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp updateAt;
 
     @OneToMany(mappedBy= "identification")

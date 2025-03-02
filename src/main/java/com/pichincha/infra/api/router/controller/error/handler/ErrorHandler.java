@@ -18,8 +18,7 @@ public class ErrorHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    protected ResponseEntity<GenericResponseDTO> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-                                                                              HttpHeaders headers ){
+    protected ResponseEntity<GenericResponseDTO> handleMethodArgumentNotValid(MethodArgumentNotValidException ex ){
         List<String> errores = ex.getBindingResult().getFieldErrors().stream().map(
                 x -> String.format("%s -> %s", x.getField(), x.getDefaultMessage())).toList();
 
@@ -28,7 +27,7 @@ public class ErrorHandler {
                 errores.toString()
         );
 
-        return new ResponseEntity<>(errorMesage,headers,HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorMesage,HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ServletRequestBindingException.class)

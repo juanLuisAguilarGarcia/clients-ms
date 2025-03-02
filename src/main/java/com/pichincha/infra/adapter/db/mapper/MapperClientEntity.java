@@ -21,6 +21,7 @@ public interface MapperClientEntity {
 
         if (!Objects.isNull(client.getPersons())){
             person = Person.builder()
+                    .personId(client.getPersons().getPersonId())
                     .address(client.getPersons().getAddress())
                     .age(client.getPersons().getAge())
                     .firstName(client.getPersons().getFirstName())

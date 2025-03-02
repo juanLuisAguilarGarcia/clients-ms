@@ -5,8 +5,10 @@ public class ServiceConsts {
 
     private ServiceConsts(){}
     /**
-     * ejemplos mock para swagger
+     * Msg
      */
     public static final String MSG_CLIENT_CREATED = "client created";
     public static final String MSG_CLIENT_GET = "client found";
+    public static final String MSG_PROCESS_SERVICE = "client %s successfully. %s: %s";
+    public static final String MSG_ERROR_PROCESS_SERVICE = "client %s error, %s: %s. Message: %s";
 }

@@ -2,10 +2,9 @@ package com.pichincha.infra.api.router.controller.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.pichincha.infra.api.router.controller.dto.response.PersonDto;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
 import java.sql.Timestamp;
 
@@ -16,8 +15,10 @@ import java.sql.Timestamp;
 public class CreateClientDto  {
     @JsonProperty("is_active")
     private Boolean isActive;
+    @NotBlank(message = "password is requiered")
     private String password;
     @JsonProperty("personal_information")
+    @Valid
     private PersonDto personalInformation;
     @JsonProperty("create_at")
     private Timestamp createAt;
