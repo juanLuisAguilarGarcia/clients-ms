@@ -3,7 +3,6 @@ package com.pichincha.infra.api.router.controller.error.handler;
 import com.pichincha.infra.api.router.controller.dto.GenericResponseDTO;
 import com.pichincha.infra.api.router.controller.error.ErrorConsts;
 import com.pichincha.infra.api.router.controller.error.exception.ClientException;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.*;

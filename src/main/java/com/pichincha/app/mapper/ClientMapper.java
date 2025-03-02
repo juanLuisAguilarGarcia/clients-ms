@@ -1,7 +1,6 @@
 package com.pichincha.app.mapper;
 
 import com.pichincha.domain.entities.Client;
-import com.pichincha.domain.entities.ContactInformation;
 import com.pichincha.infra.adapter.db.entites.ClientsDto;
 import com.pichincha.infra.adapter.db.entites.IdentificationTypeDto;
 import com.pichincha.infra.adapter.db.entites.PersonsDto;
