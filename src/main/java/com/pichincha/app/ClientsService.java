@@ -76,7 +76,7 @@ public class ClientsService implements ClientsFacade {
             clientToUpdate.getPersonalInformation().setPersonId(clientExists.getPersonalInformation().getPersonId());
             Client client = clientsPortRepository.updateClient(ClientMapper.toClientEntityDto(clientToUpdate));
             log.info(String.format(MSG_PROCESS_SERVICE, "update", "clientId: ", clientToUpdate.getClientId()));
-            return ClientMapper.toClientDto(ClientMapper.toDto(client), MSG_CLIENT_GET);
+            return ClientMapper.toClientDto(ClientMapper.toDto(client), MSG_CLIENT_UPDATE);
         } catch(DataAccessException ex){
             log.error(String.format(MSG_ERROR_PROCESS_SERVICE, "update",  "clientId: ", clientToUpdate.getClientId(),
                     ex.getMessage()));

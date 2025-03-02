@@ -1,5 +1,6 @@
 package com.pichincha.infra.api.router.controller.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.pichincha.infra.api.router.controller.dto.response.PersonDto;
 import jakarta.validation.Valid;
@@ -11,10 +12,14 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CreateClientDto {
+public class UpdateClientDto {
     @NotBlank(message = "password is requiered")
     private String password;
     @JsonProperty("personal_information")
     @Valid
     private PersonDto personalInformation;
+    @JsonIgnore
+    private Long clientId;
+    @JsonProperty("is_active")
+    private Boolean isActive;
 }

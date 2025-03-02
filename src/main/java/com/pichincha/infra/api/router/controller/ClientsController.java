@@ -3,6 +3,8 @@ package com.pichincha.infra.api.router.controller;
 import com.pichincha.infra.api.router.RouterConsts;
 import com.pichincha.infra.api.router.controller.dto.GenericResponseDTO;
 import com.pichincha.infra.api.router.controller.dto.request.CreateClientDto;
+import com.pichincha.infra.api.router.controller.dto.request.UpdateClientDto;
+import com.pichincha.infra.api.router.controller.dto.response.client.ClientDataDto;
 import com.pichincha.infra.api.router.controller.dto.response.client.ClientDto;
 import com.pichincha.infra.api.router.controller.error.exception.ClientException;
 import com.pichincha.infra.api.router.controller.mapper.ClientDtoMapper;
@@ -125,11 +127,11 @@ public class ClientsController {
     })
     public ResponseEntity<ClientDto> updateClient(
             @Parameter(description = RouterConsts.API_PARAM_REQUEST_GET_CLIENT, required = true) @PathVariable(name = PARAM_CLIENT_ID) Long clientId,
-            @Parameter(description = RouterConsts.API_PARAM_REQUEST_UPDATE_CLIENT, required = true) @Valid @RequestBody(required = true) CreateClientDto clientDto) throws ClientException {
+            @Parameter(description = RouterConsts.API_PARAM_REQUEST_UPDATE_CLIENT, required = true) @Valid @RequestBody(required = true) UpdateClientDto clientDto) throws ClientException {
         log.info(String.format(MSG_PROCESS, "init", "update",  clientId));
 
         clientDto.setClientId(clientId);
-        ClientDto response = clientsFacade.updateClient(ClientDtoMapper.toEntity(clientDto));
+        ClientDto response = clientsFacade.updateClient(ClientDtoMapper.updateToEntity(clientDto));
 
         log.info(String.format(MSG_PROCESS, "init", "update",  clientId));
         return ResponseEntity.ok(response);

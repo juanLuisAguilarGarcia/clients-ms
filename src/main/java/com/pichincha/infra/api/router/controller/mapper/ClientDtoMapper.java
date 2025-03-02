@@ -5,6 +5,7 @@ import com.pichincha.domain.entities.ContactInformation;
 import com.pichincha.domain.entities.Identification;
 import com.pichincha.domain.entities.Person;
 import com.pichincha.infra.api.router.controller.dto.request.CreateClientDto;
+import com.pichincha.infra.api.router.controller.dto.request.UpdateClientDto;
 import org.mapstruct.Mapper;
 
 import java.util.Objects;
@@ -18,11 +19,7 @@ public interface ClientDtoMapper {
         }
 
         Client client = Client.builder()
-                .clientId(createClientDto.getClientId())
-                .password(createClientDto.getPassword())
-                .isActive(createClientDto.getIsActive())
-                .createAt(createClientDto.getCreateAt())
-                .updateAt(createClientDto.getUpdateAt()).build();
+                .password(createClientDto.getPassword()).build();
 
         if(!Objects.isNull(createClientDto.getPersonalInformation())){
             client.setPersonalInformation(Person.builder()
@@ -41,6 +38,40 @@ public interface ClientDtoMapper {
             if(!Objects.isNull(createClientDto.getPersonalInformation().getContactInformation())){
                 client.getPersonalInformation().setContactInformation(ContactInformation.builder()
                         .telephoneNumber(createClientDto.getPersonalInformation().getContactInformation().getTelephoneNumber()).build());
+            }
+
+        }
+
+        return client;
+    }
+
+    static Client updateToEntity(UpdateClientDto updateClientDto){
+        if(Objects.isNull(updateClientDto)){
+            return Client.builder().build();
+        }
+
+        Client client = Client.builder()
+                .clientId(updateClientDto.getClientId())
+                .isActive(updateClientDto.getIsActive())
+                .password(updateClientDto.getPassword()).build();
+
+        if(!Objects.isNull(updateClientDto.getPersonalInformation())){
+            client.setPersonalInformation(Person.builder()
+                    .gender(updateClientDto.getPersonalInformation().getGender())
+                    .lastName(updateClientDto.getPersonalInformation().getLastName())
+                    .firstName(updateClientDto.getPersonalInformation().getFirstName())
+                    .age(updateClientDto.getPersonalInformation().getAge())
+                    .address(updateClientDto.getPersonalInformation().getAddress()).build());
+
+            if(!Objects.isNull(updateClientDto.getPersonalInformation().getIdentification())){
+                client.getPersonalInformation().setIdentification(Identification.builder()
+                        .typeId(updateClientDto.getPersonalInformation().getIdentification().getTypeId())
+                        .number(updateClientDto.getPersonalInformation().getIdentification().getNumber()).build());
+            }
+
+            if(!Objects.isNull(updateClientDto.getPersonalInformation().getContactInformation())){
+                client.getPersonalInformation().setContactInformation(ContactInformation.builder()
+                        .telephoneNumber(updateClientDto.getPersonalInformation().getContactInformation().getTelephoneNumber()).build());
             }
 
         }
