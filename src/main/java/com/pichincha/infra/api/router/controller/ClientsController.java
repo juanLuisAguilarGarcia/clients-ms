@@ -56,7 +56,7 @@ public class ClientsController {
             @Parameter(description = RouterConsts.API_PARAM_REQUEST_CREATE_CLIENT, required = true) @Validated @RequestBody(required = true) CreateClientDto clientDto) throws ClientException {
         log.info(String.format(MSG_PROCESS, "init", "create",  clientDto.getPersonalInformation().getIdentification().getNumber()));
 
-        ClientDto response = clientsFacade.createClient(clientDtoMapper.toEntity(clientDto));
+        ClientDto response = clientsFacade.createClient(ClientDtoMapper.toEntity(clientDto));
 
         log.info(String.format(MSG_PROCESS, "end", "create",  clientDto.getPersonalInformation().getIdentification().getNumber()));
         return new ResponseEntity<>(response, HttpStatus.CREATED);
@@ -128,7 +128,8 @@ public class ClientsController {
             @Parameter(description = RouterConsts.API_PARAM_REQUEST_UPDATE_CLIENT, required = true) @Valid @RequestBody(required = true) CreateClientDto clientDto) throws ClientException {
         log.info(String.format(MSG_PROCESS, "init", "update",  clientId));
 
-        ClientDto response = clientsFacade.updateClient(clientDtoMapper.toEntityWithId(clientDto, clientId));
+        clientDto.setClientId(clientId);
+        ClientDto response = clientsFacade.updateClient(ClientDtoMapper.toEntity(clientDto));
 
         log.info(String.format(MSG_PROCESS, "init", "update",  clientId));
         return ResponseEntity.ok(response);
