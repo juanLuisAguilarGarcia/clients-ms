@@ -124,7 +124,7 @@ public class ClientsController {
                     content =  { @Content( schema = @Schema(implementation = GenericResponseDTO.class), mediaType = APPLICATION_JSON_VALUE)})
     })
     public ResponseEntity<ClientDto> updateClient(
-            @Parameter(description = RouterConsts.API_OPERATION_UPDATE_CLIENT, required = true) @PathVariable(name = PARAM_CLIENT_ID) Long clientId,
+            @Parameter(description = RouterConsts.API_PARAM_REQUEST_GET_CLIENT, required = true) @PathVariable(name = PARAM_CLIENT_ID) Long clientId,
             @Parameter(description = RouterConsts.API_PARAM_REQUEST_UPDATE_CLIENT, required = true) @Valid @RequestBody(required = true) CreateClientDto clientDto) throws ClientException {
         log.info(String.format(MSG_PROCESS, "init", "update",  clientId));
 
