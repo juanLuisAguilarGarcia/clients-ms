@@ -11,7 +11,6 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Valid
 @Builder
 public class PersonDto {
     @JsonProperty("first_name")
@@ -24,6 +23,7 @@ public class PersonDto {
     private String gender;
     private Integer age;
     @NotNull
+    @Valid
     private IdentificationDto identification;
     private String address;
     @JsonProperty("contact_information")

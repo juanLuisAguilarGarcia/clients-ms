@@ -15,7 +15,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -126,7 +125,7 @@ public class ClientsController {
     })
     public ResponseEntity<ClientDto> updateClient(
             @Parameter(description = RouterConsts.API_PARAM_REQUEST_GET_CLIENT, required = true) @PathVariable(name = PARAM_CLIENT_ID) Long clientId,
-            @Parameter(description = RouterConsts.API_PARAM_REQUEST_UPDATE_CLIENT, required = true) @Valid @RequestBody(required = true) UpdateClientDto clientDto) throws ClientException {
+            @Parameter(description = RouterConsts.API_PARAM_REQUEST_UPDATE_CLIENT, required = true) @Validated @RequestBody(required = true) UpdateClientDto clientDto) throws ClientException {
         log.info(String.format(MSG_PROCESS, "init", "update",  clientId));
 
         clientDto.setClientId(clientId);
