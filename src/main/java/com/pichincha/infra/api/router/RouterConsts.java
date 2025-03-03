@@ -13,7 +13,7 @@ public class RouterConsts {
      */
     public static final String API = "Clients";
     public static final String CROSS_ORIGIN = "*";
-    public static final String CONTROLLER_PATH = "/clients";
+    public static final String CONTROLLER_PATH = "/client";
 
     /**
      * operaciones o metodos

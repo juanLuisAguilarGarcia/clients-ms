@@ -4,7 +4,6 @@ import com.pichincha.infra.api.router.RouterConsts;
 import com.pichincha.infra.api.router.controller.dto.GenericResponseDTO;
 import com.pichincha.infra.api.router.controller.dto.request.CreateClientDto;
 import com.pichincha.infra.api.router.controller.dto.request.UpdateClientDto;
-import com.pichincha.infra.api.router.controller.dto.response.client.ClientDataDto;
 import com.pichincha.infra.api.router.controller.dto.response.client.ClientDto;
 import com.pichincha.infra.api.router.controller.error.exception.ClientException;
 import com.pichincha.infra.api.router.controller.mapper.ClientDtoMapper;
